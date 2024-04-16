@@ -6,6 +6,7 @@
 }
 
 header {
+  margin-top: 1rem;
   width: 100%;
 }
 
@@ -55,7 +56,8 @@ i {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 14px;
+  max-width: 350px;
+  width: auto;  
 }
 
 @media screen and (max-width: 768px) {
@@ -87,11 +89,11 @@ i {
   position: relative;
 }
 
-.bg-home::before {
+/*.bg-home::before {
   content: "";
   display: block;
   position: absolute;
-  background-image: linear-gradient(to bottom, rgba(6, 18, 30, 0.1), #06121e), url("../assets/bg.svg");
+  background-image: linear-gradient(to bottom, rgba(6, 18, 30, 0.1), #06121e), url("assets/bg.mp4");
   left: 0;
   top: 0;
   width: 100%;
@@ -100,8 +102,20 @@ i {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 50% 0;
-  opacity: 0.9;
+  opacity: 0.5;
 }
+*/
+.bg-video {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.5;
+}
+
 
 .hero {
   color: #FFF;
@@ -177,7 +191,8 @@ i {
   padding: 34px 14px 64px 14px;
 }
 .about-content img {
-  max-width: 570px;
+  max-width: 250px;
+  opacity: 0.9;
 }
 
 .about-content div {
@@ -222,35 +237,52 @@ i {
   max-width: 780px;
 }
 
-.haircuts {
+.chamadas {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 16px;
   padding: 0 44px 34px 44px;
+  
 }
 
-.haircut {
-  flex: 1;
-  display: flex;
+.chamada {
+  flex:1;
+  display:flex;
   flex-direction: column;
   background-color: #FFF;
   border-radius: 8px;
   box-shadow: 0px -1px 17px -4px rgba(0, 0, 0, 0.45);
   overflow: hidden;
+  
 }
-.haircut img {
+.chamada img {
   width: 100%;
-  max-width: 354px;
+  height: 300px;
+  max-width: none;
+  object-fit: cover; 
   transition: transform 0.2s;
 }
 
-.haircut img:hover {
+.chamada video {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  transition: transform 0.2s;
+}
+
+
+.chamada img:hover {
   transform: scale(1.2);
   z-index: 1;
 }
 
-.haircut-info {
+.chamada video:hover {
+  transform: scale(1.2);
+  z-index: 1;
+}
+
+.chamada-info {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -259,20 +291,25 @@ i {
   z-index: 99;
 }
 
-.haircut-info button {
+.chamada-info button {
   color: #FFF;
   background-color: #d94140;
   padding: 4px 8px;
   border-radius: 4px;
   border: 0;
-  cursor: default;
+  cursor: pointer;
+}
+
+.chamada-info button a {
+  color: inherit;
+  text-decoration: none; 
 }
 
 @media screen and (max-width: 768px) {
-  .haircuts {
+  .chamadas {
     flex-direction: column;
   }
-  .haircut img {
+  .chamada img {
     max-width: 740px;
   }
 }
@@ -351,6 +388,8 @@ svg {
 img {
   width: 100%;
 }
+
+
 
 a {
   cursor: pointer;
